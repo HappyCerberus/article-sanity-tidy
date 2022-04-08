@@ -1,3 +1,7 @@
+# CMake
+.cmake_build/
+compile_commands.json
+
 # Prerequisites
 *.d
 
