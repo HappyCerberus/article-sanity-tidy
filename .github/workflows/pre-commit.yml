@@ -38,7 +38,7 @@ jobs:
         id: phase2
       - name: Close pull request if still bad
         if: always() && (steps.phase1.outcome == 'failure' && steps.phase2.outcome == 'failure')
-        uses: superbrothers/close-pull-request@v3
+        uses: peter-evans/close-pull@v2
         with:
           comment: "Automated fixes were unable to conform code to required code style. Manual intervention required."
         
