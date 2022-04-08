@@ -1,0 +1,27 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add clang repositories & install packages
+        run: |
+            wget https://apt.llvm.org/llvm.sh
+            chmod +x llvm.sh
+            sudo ./llvm.sh 13 all
+      - name: Install Cmake
+        run: |
+            sudo apt-get install -y cmake
+      - name: Relink binaries
+        run: |
+            sudo rm /usr/bin/clang-format
+            sudo ln -s /usr/bin/clang-format-13 /usr/bin/clang-format
+            sudo ln -s /usr/bin/clang-tidy-13 /usr/bin/clang-tidy
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: pre-commit/action@v2.0.3
