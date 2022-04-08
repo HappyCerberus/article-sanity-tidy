@@ -6,4 +6,4 @@ repos:
       - id: clang-format
         args: [-i]
       - id: clang-tidy
-        args: [--config-file=.clang-tidy, --fix-errors]
+        args: []

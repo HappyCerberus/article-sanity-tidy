@@ -1,6 +1,6 @@
 ---
 Checks:	'readability-*'
-WarningsAsErrors: true
+WarningsAsErrors: 'readability-*'
 HeaderFilterRegex: ''
 FormatStyle:     Google
 CheckOptions:
